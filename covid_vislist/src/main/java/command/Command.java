@@ -1,5 +1,0 @@
-
-interface Command {
-  void execute() ;
-
-}
