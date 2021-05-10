@@ -132,7 +132,7 @@ class NM extends StrategyNewManager{
         
         BufferedWriter bf = null;
         try {
-            bf = new BufferedWriter(new FileWriter("C:\\DB\\ManagerInfo.txt", true));
+            bf = new BufferedWriter(new FileWriter("./ManagerInfo.txt", true));
             PrintWriter pw = new PrintWriter(bf, true);
             pw.write(info + "\n");
             pw.flush();
@@ -151,7 +151,7 @@ class NM extends StrategyNewManager{
     
     protected void outFile() throws IOException {
         
-        FileReader fileRead = new FileReader(new File("C:\\DB\\ManagerInfo.txt"));
+        FileReader fileRead = new FileReader(new File("./strategy/ManagerInfo.txt"));
         BufferedReader bfReader = new BufferedReader(fileRead);
         
         String line;

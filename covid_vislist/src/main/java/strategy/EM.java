@@ -166,7 +166,7 @@ class EM extends StrategyExistingManager{
         
         BufferedWriter bf = null;
         try {
-            bf = new BufferedWriter(new FileWriter("C:\\DB\\ManagerInfo.txt", true));
+            bf = new BufferedWriter(new FileWriter("./strategy/ManagerInfo.txt", true));
             PrintWriter pw = new PrintWriter(bf, true);
             pw.write(info + "\n");
             pw.flush();

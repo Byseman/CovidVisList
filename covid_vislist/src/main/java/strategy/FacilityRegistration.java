@@ -8,10 +8,11 @@ package strategy;
 /**
  *
  * @author Owner1ss
+ * 
  */
 public class FacilityRegistration {
     public static void main(String[] args){
         Manager input = new Manager();  
-        input.setStrategy(new EM("","","","00000000000","","",""));      
+        input.setStrategy(new NM("","","","00000000000","","",""));      
     }
 }
