@@ -1,13 +1,21 @@
+/*
+ActionSignin.java
+- Command 패턴의 요소인 ConcreteCommand 객체에 해당
+*/
 
 package command;
 
-public class ActionSignin extends Access implements ActionListenerCommand {
-  private Access acc;
+public class ActionSignin implements ActionListenerCommand {
+  private Signin signin;
 
-  public ActionSignin(Access acc) {
+  public ActionSignin(Signin signin) {
+      this.signin = signin;
   }
 
+  @Override
   public void execute() {
+      // 파일입출력 기능의 정상작동 확인을 위한 테스트 코드
+      signin.readfile();
   }
 
 }
