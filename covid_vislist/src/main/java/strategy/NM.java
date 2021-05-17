@@ -106,52 +106,42 @@ class NM extends StrategyNewManager{
         System.out.print("관할지역:");
         this.facilityZone = sc.next();
     }
+    
     protected void inFAddress(){
         String input;
         int check = 0;
         
-        System.out.print("사업장 주소");
-        input = sc.next();
-        
-        for (NM info:managerInfo) {
-            if (info.facilityAddress.equals(input)) {
-                check = 1;
-            }
-        }
-        if(check == 0){
-            this.facilityAddress = input;
-        }
-        else {
-            System.out.println("이미 존재하는 사업자 등록번호입니다.");
-            inFName();
-        }
-         sc.close(); 
+        System.out.print("사업장 주소:");
+        this.facilityAddress = sc.next();        
+//        input = sc.next();
+//        
+//        for (NM info:managerInfo) {
+//            if (info.facilityAddress.equals(input)) {
+//                check = 1;
+//            }
+//        }
+//        if(check == 0){
+//            this.facilityAddress = input;
+//            System.out.println("okay");
+//        }
+//        else {
+//            System.out.println("이미 존재하는 사업자 등록번호입니다.");
+//            inFAddress();
+//        }
     }
     
-    protected void inFile(String info){
+    protected void inFile(String info) throws IOException{
         
-        BufferedWriter bf = null;
-        try {
-            bf = new BufferedWriter(new FileWriter("./ManagerInfo.txt", true));
-            PrintWriter pw = new PrintWriter(bf, true);
-            pw.write(info + "\n");
-            pw.flush();
-            pw.close();
-        } catch (IOException ex) {
-            Logger.getLogger(StrategyNewManager.class.getName()).log(Level.SEVERE, null, ex);
-        } finally {
-            try {
-                bf.close();
-            } catch (IOException ex) {
-                Logger.getLogger(StrategyNewManager.class.getName()).log(Level.SEVERE, null, ex);
-            }
-        }
-        
+        BufferedWriter log = new BufferedWriter(new FileWriter("./datafile/manager.txt", true));
+        PrintWriter pw = new PrintWriter(log, true);
+        pw.write(info + "\n");
+        pw.flush();
+        pw.close();
     } 
     
     protected void outFile() throws IOException {
         
-        FileReader fileRead = new FileReader(new File("./strategy/ManagerInfo.txt"));
+        FileReader fileRead = new FileReader(new File("./datafile/manager.txt"));
         BufferedReader bfReader = new BufferedReader(fileRead);
         
         String line;
@@ -162,7 +152,6 @@ class NM extends StrategyNewManager{
         for (String info: readInfo) {
             line = info;
             String[] str = line.split("/");
-            System.out.println(str[0]);
             managerInfo.add(new NM(str[0], str[1], str[2], str[3], str[4], str[5], str[6]));
         }
     }

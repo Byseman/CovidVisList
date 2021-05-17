@@ -39,37 +39,37 @@ abstract class StrategyNewManager implements Strategy {
     
     @Override
     public void input() {
-        boolean check;
-        
+         System.out.println("1");
         try {
-            outFile();
+            boolean check = false;
+            
+            try {
+                outFile();
+            } catch (IOException ex) {
+                Logger.getLogger(StrategyNewManager.class.getName()).log(Level.SEVERE, null, ex);
+            }
+            
+            inFName();
+            inLNum();
+            inPName();
+            
+            do{
+                check = inFNum();
+            }while (check == false);
+            
+            inBType();
+            inFZone();
+            inFAddress();
+            
+            String info;
+            info = facilityName + '/' + licenseNum + '/' + presidentName + '/'
+                    + facilityNum + '/' + businessType + '/' + facilityZone + '/' + facilityAddress;
+            inFile(info);
         } catch (IOException ex) {
             Logger.getLogger(StrategyNewManager.class.getName()).log(Level.SEVERE, null, ex);
         }
-        
-        inFName();
-        inLNum();
-        inPName();
-        
-        do{
-            check = inFNum();
-        }while (check == false);
-                
-        inBType();
-        inFZone();
-        inFAddress();
-        
-        String info; 
-        info = facilityName + '|' + licenseNum + '|' + presidentName + '|' 
-                + facilityNum + '|' + businessType + '|' + facilityZone + '|' + facilityAddress;
-        System.out.print(info);
-        fileInput(info);
     }
     
-    @Override
-    public void fileInput(String info) {       
-        inFile(info);  
-    }
     
     abstract void inFName();
 
@@ -85,7 +85,7 @@ abstract class StrategyNewManager implements Strategy {
 
     abstract void inFAddress();
     
-    abstract void inFile(String info);
+    abstract void inFile(String info) throws IOException;
     
     abstract void outFile() throws IOException;
 }

@@ -39,6 +39,7 @@ abstract class StrategyExistingManager implements Strategy {
     @Override
     public void input() {
         
+        System.out.println("2");
         try {
             outFile();
         } catch (IOException ex) {
@@ -62,17 +63,12 @@ abstract class StrategyExistingManager implements Strategy {
         inFAddress();
         
         String info; 
-        info = facilityName + '|' + licenseNum + '|' + presidentName + '|' 
-                + facilityNum + '|' + businessType + '|' + facilityZone + '|' + facilityAddress;
-        System.out.print(info);
-        fileInput(info);
+        info = facilityName + '/' + licenseNum + '/' + presidentName + '/' 
+                + facilityNum + '/' + businessType + '/' + facilityZone + '/' + facilityAddress;
+        inFile(info);
         
     }
-    
-    @Override
-    public void fileInput(String info) {  
-        inFile(info);
-    }
+
     
     abstract void inFName();
     abstract boolean inLNum();

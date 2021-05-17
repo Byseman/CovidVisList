@@ -14,6 +14,10 @@ public class Manager {
     Strategy strategy;
     
     public void setStrategy(Strategy strategy){
+        this.strategy = strategy;
+    }
+    
+    public void performinput(){
         strategy.input();
     }
 }

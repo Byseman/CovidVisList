@@ -166,25 +166,18 @@ class EM extends StrategyExistingManager{
         
         BufferedWriter bf = null;
         try {
-            bf = new BufferedWriter(new FileWriter("./strategy/ManagerInfo.txt", true));
+            bf = new BufferedWriter(new FileWriter("./datafile/manager.txt", true));
             PrintWriter pw = new PrintWriter(bf, true);
             pw.write(info + "\n");
             pw.flush();
             pw.close();
         } catch (IOException ex) {
             Logger.getLogger(StrategyNewManager.class.getName()).log(Level.SEVERE, null, ex);
-        } finally {
-            try {
-                bf.close();
-            } catch (IOException ex) {
-                Logger.getLogger(StrategyNewManager.class.getName()).log(Level.SEVERE, null, ex);
-            }
         }
-        sc.close(); 
     }
     
     protected void outFile() throws IOException {
-        FileReader fileRead = new FileReader(new File("C:\\DB\\ManagerInfo.txt"));
+        FileReader fileRead = new FileReader(new File("./datafile/manager.txt"));
         BufferedReader bfReader = new BufferedReader(fileRead);
         
         String line;
@@ -195,7 +188,6 @@ class EM extends StrategyExistingManager{
         for (String info: readInfo) {
             line = info;
             String[] str = line.split("/");
-            System.out.println(str[0]);
             managerInfo.add(new EM(str[0], str[1], str[2], str[3], str[4], str[5], str[6]));
         } 
     }
