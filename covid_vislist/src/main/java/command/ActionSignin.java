@@ -16,7 +16,7 @@ public class ActionSignin implements ActionListenerCommand {
   public void execute() {
       // 파일입출력 기능의 정상작동 확인을 위한 테스트 코드(2 Lines)
       //signin.readfile();
-      signin.auth("test01", "test002");
+      signin.auth("test001", "test001");
   }
 
 }

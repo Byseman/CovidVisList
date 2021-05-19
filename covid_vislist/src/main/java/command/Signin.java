@@ -12,7 +12,6 @@ import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.ArrayList;
-import java.util.Arrays;
 
 public class Signin {
   private String userid;
@@ -141,5 +140,15 @@ public class Signin {
       }
       
   }
+  
+  // 사용자로부터 정보를 입력받는 메소드 생성 - BoUML 미적용
+  /*public void inputvalue(){
+      BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+      
+      String userid = br.readLine();
+      
+      
+      
+  }*/
 
 }
