@@ -14,6 +14,8 @@ public class ActionSignout implements ActionListenerCommand {
 
   @Override
   public void execute() {
+      // signout.chksignin("test001");
+      signout.doout();
   }
 
 }

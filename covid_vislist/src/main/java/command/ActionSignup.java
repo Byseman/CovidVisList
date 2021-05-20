@@ -14,6 +14,7 @@ public class ActionSignup implements ActionListenerCommand {
 
   @Override
   public void execute() {
+      signup.test();
   }
 
 }
