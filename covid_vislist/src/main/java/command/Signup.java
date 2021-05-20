@@ -9,9 +9,7 @@ package command;
 
 public class Signup {
   private String userid;
-
   private String password;
-
   private String tel;
   
   // 회원가입 기능의 정상작동 확인을 위한 확인용 코드 - 필요 시 BoUML에 적용
@@ -23,7 +21,7 @@ public class Signup {
       this.tel = tel;
   }
   
-  public void test(){
+  public void signupsrv(){
       System.out.println("----------------------------------------------");
       System.out.println("준비중입니다.");
   }

@@ -15,11 +15,10 @@ import java.util.ArrayList;
 
 public class Signin {
   private String userid = "";
-
   private String password = "";
   
   // 로그인이 되어있는지 여부를 확인하기 위한 테스트 코드(1 Line)
-  // public static String sessionid = "";
+  public static String sessionid = "";
   
   // 파일로부터 계정 Parsing을 위한 인스턴스 변수 - BoUML미적용
   private ArrayList<String> idpw = new ArrayList<String>();
@@ -37,16 +36,11 @@ public class Signin {
   
   // 사용자의 입력을 받음. - BoUML미적용
   public void signinsrv() throws IOException {
-  // public String signinsrv() throws IOException {
+      // 입출력 시 자원 효율 고려하여 BufferedReader 사용함.
+      BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+      boolean result;
+      
       try{
-          // 입출력 시 자원 효율 고려하여 BufferedReader 사용함.
-          BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-          boolean result;
-
-          // 2 Lines for Test(관련 주석 : 사용자 화면에 비밀번호 입력값...)
-          // Console cs = System.console();
-          // char[] pw;
-
           while(true){
               System.out.println("----------------------------------------------");
               System.out.println("--------------------LOGIN---------------------");
@@ -54,20 +48,14 @@ public class Signin {
               System.out.print("아이디 : ");
               userid = br.readLine();
 
-              // userid = sc.nextLine();
               System.out.print("비밀번호 : ");
               password = br.readLine();
-
-              // 사용자 화면에 비밀번호 입력값이 표시가 안되는지 확인하기 위한 테스트 코드
-              // (2 Lines)
-              // pw = cs.readPassword("비밀번호 : ");
-              // password = new String(pw); 
 
               result = auth(userid, password);
 
               if(result){
-                  System.out.println(username + "님 환영합니다!");
-                  // sessionid = userid;
+                  sessionid = userid;
+                  
                   // 이후 넘어갈 페이지 구현 후 통합 시 연결
                   break;
               }
@@ -79,24 +67,26 @@ public class Signin {
       } catch(IOException ex){
           ex.printStackTrace();
           System.out.println(ex.getMessage());
+      } finally{
+          System.out.println("----------------------------------------------");
+          System.out.println(username + "님 환영합니다!");
       }
-      // return userid;
   }
 
-  // 개요 : 로그인 시 회원으로 등록되어 있는지 여부를 판단하는 데이터를 불러옴.
+  // 로그인 시 회원으로 등록되어 있는지 여부를 판단하는 데이터를 불러옴.
   // ArrayList를 반환하기 위해 메소드 반환형 변경
   public ArrayList<String> readfile(ArrayList<String> idpw){
-  //public void readfile() {
-      try{
-          File file = new File("./datafile/member.txt");
+      
+      File file = new File("./datafile/member.txt");
           
+      // 파일을 읽어들이기 위해 필요한 인스턴스 변수 생성(2 Lines)
+      String temp = "";
+      String[] splittemp = null;
+          
+      try{
           // 한글 깨짐 현상이 발생되어 인코딩 형식을 지정함으로서 문제가 해결됨.
           BufferedReader br = new BufferedReader(new InputStreamReader(new FileInputStream(file), "utf-8"));
-          
-          // 파일을 읽어들이기 위해 필요한 인스턴스 변수 생성(2 Lines)
-          String temp = "";
-          String[] splittemp = null;
-          
+
           while((temp = br.readLine()) != null){              
               // id, pw만 받아오기 위한 split 사용
               splittemp = temp.split(" ");
@@ -135,12 +125,12 @@ public class Signin {
             System.out.println();
          }
           */
-      }catch(IOException e){
+      } catch(IOException e){
           e.getStackTrace();
+      } finally{
+          // 가공되어 저장된 ArrayList 반환
+          return (idpw);
       }
-      
-      // 가공되어 저장된 ArrayList 반환
-      return (idpw);
   }
   
   // 사용자 인증 메소드의 반환값을 Boolean으로 변경하여 정상 동작하는지 확인을 위한
@@ -182,11 +172,10 @@ public class Signin {
       // 확인하기 위한 테스트 코드(이하 전체 Lines)
       if(acclist.contains(userid)){
           // System.out.println("아이디 검증 성공 - index값 : " + acclist.indexOf(userid));
+          
           // 아이디 검증 후 비밀번호 일치여부를 확인
           if(password.equals(acclist.get((acclist.indexOf(userid))+1))){
               // System.out.println("비밀번호 검증 성공");
-              // signinsrv 메소드에서 아래 1줄 활용
-              // System.out.println(acclist.get(acclist.indexOf(userid)+2) + "님, 환영합니다.");
               username = acclist.get(acclist.indexOf(userid)+2);
               return true;
           }
@@ -203,15 +192,4 @@ public class Signin {
       }
       
   }
-  
-  // 사용자로부터 정보를 입력받는 메소드 생성 - BoUML 미적용
-  /*public void inputvalue(){
-      BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-      
-      String userid = br.readLine();
-      
-      
-      
-  }*/
-
 }

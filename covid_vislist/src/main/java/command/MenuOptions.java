@@ -10,7 +10,7 @@ public class MenuOptions {
   private ActionListenerCommand ActionSignin;   // 로그인
   private ActionListenerCommand ActionSignout;  // 로그아웃
   
-  // select() 메소드에서 사용할 변수 선언-BoUML 미적용 Attribute
+  // BoUML 미적용
   public MenuOptions(ActionListenerCommand aSignup, ActionListenerCommand aSignin, ActionListenerCommand aSignuout) {
       this.ActionSignup = aSignup;
       this.ActionSignin = aSignin;

@@ -7,18 +7,13 @@ Signout.java
 package command;
 
 public class Signout {
-  private String userid;
   
-// 로그아웃 기능의 정상작동 확인을 위한 확인용 코드 - 필요 시 BoUML에 적용
+// 로그아웃 기능의 정상작동 확인을 위한 확인용 코드 - BoUML 미적용
   public Signout(){}
-
-  public Signout(String userid) {
-      this.userid = userid;
-  }
   
-  // 로그아웃을 진행하기 위한 메소드 - BoUML 미적용
-  public void doout(){
-      // Signin.sessionid = "";
+// 로그아웃을 진행하기 위한 메소드 - BoUML 미적용
+  public void signoutsrv(){
+      Signin.sessionid = "";
       System.out.println("----------------------------------------------");
       System.out.println("로그아웃 되었습니다!");
   }
@@ -36,5 +31,4 @@ public class Signout {
           System.out.println("현재 로그인이 되어있지 않습니다.");
       }
   }*/
-
 }
