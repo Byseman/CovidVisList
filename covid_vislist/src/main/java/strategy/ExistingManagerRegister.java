@@ -16,7 +16,7 @@ import java.util.logging.Logger;
  *
  * @author Owner
  */
-abstract class StrategyExistingManager implements Strategy {
+abstract class ExistingManagerRegister implements RegisterBehavior {
     
     protected String facilityName;
     protected String licenseNum;
@@ -26,7 +26,7 @@ abstract class StrategyExistingManager implements Strategy {
     protected String facilityZone;
     protected String facilityAddress;
 
-    public StrategyExistingManager(String facilityName, String licenseNum, String presidentName, String facilityNum, String businessType, String facilityZone, String facilityAddress) {
+    public ExistingManagerRegister(String facilityName, String licenseNum, String presidentName, String facilityNum, String businessType, String facilityZone, String facilityAddress) {
         this.facilityName = facilityName;
         this.licenseNum = licenseNum;
         this.presidentName = presidentName;
@@ -37,13 +37,13 @@ abstract class StrategyExistingManager implements Strategy {
     }
     
     @Override
-    public void input() {
+    public void register() {
         
         System.out.println("2");
         try {
             outFile();
         } catch (IOException ex) {
-            Logger.getLogger(StrategyNewManager.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(NewManagerRegister.class.getName()).log(Level.SEVERE, null, ex);
         }
         boolean check[] = new boolean[3];
         

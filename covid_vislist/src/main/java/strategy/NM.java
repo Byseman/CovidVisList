@@ -22,7 +22,7 @@ import java.util.regex.Pattern;
  *
  * @author Owner
  */
-class NM extends StrategyNewManager{
+class NM extends NewManagerRegister{
     
     private ArrayList<String> readInfo = new ArrayList<>();
     private ArrayList<NM> managerInfo = new ArrayList<>(); 

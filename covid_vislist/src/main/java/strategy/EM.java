@@ -22,7 +22,7 @@ import java.util.regex.Pattern;
  *
  * @author Owner
  */
-class EM extends StrategyExistingManager{
+class EM extends ExistingManagerRegister{
 
     private ArrayList<String> readInfo = new ArrayList<>();
     private ArrayList<EM> managerInfo = new ArrayList<>(); 
@@ -172,7 +172,7 @@ class EM extends StrategyExistingManager{
             pw.flush();
             pw.close();
         } catch (IOException ex) {
-            Logger.getLogger(StrategyNewManager.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(NewManagerRegister.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
     

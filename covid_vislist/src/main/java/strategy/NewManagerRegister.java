@@ -17,7 +17,7 @@ import java.util.logging.Logger;
  *
  * @author Owner
  */
-abstract class StrategyNewManager implements Strategy {
+abstract class NewManagerRegister implements RegisterBehavior {
 
     protected String facilityName;
     protected String licenseNum;
@@ -27,7 +27,7 @@ abstract class StrategyNewManager implements Strategy {
     protected String facilityZone;
     protected String facilityAddress;
 
-    public StrategyNewManager(String facilityName, String licenseNum, String presidentName, String facilityNum, String businessType, String facilityZone, String facilityAddress) {
+    public NewManagerRegister(String facilityName, String licenseNum, String presidentName, String facilityNum, String businessType, String facilityZone, String facilityAddress) {
         this.facilityName = facilityName;
         this.licenseNum = licenseNum;
         this.presidentName = presidentName;
@@ -38,7 +38,7 @@ abstract class StrategyNewManager implements Strategy {
     }
     
     @Override
-    public void input() {
+    public void register() {
          System.out.println("1");
         try {
             boolean check = false;
@@ -46,7 +46,7 @@ abstract class StrategyNewManager implements Strategy {
             try {
                 outFile();
             } catch (IOException ex) {
-                Logger.getLogger(StrategyNewManager.class.getName()).log(Level.SEVERE, null, ex);
+                Logger.getLogger(NewManagerRegister.class.getName()).log(Level.SEVERE, null, ex);
             }
             
             inFName();
@@ -66,7 +66,7 @@ abstract class StrategyNewManager implements Strategy {
                     + facilityNum + '/' + businessType + '/' + facilityZone + '/' + facilityAddress;
             inFile(info);
         } catch (IOException ex) {
-            Logger.getLogger(StrategyNewManager.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(NewManagerRegister.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
     

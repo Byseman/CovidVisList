@@ -15,9 +15,9 @@ public class FacilityRegistration {
 
     public static void main(String[] args){
         Manager input = new Manager();
-        input.setStrategy(new EM("","","","00000000000","","",""));   
-        input.performinput();
-        input.setStrategy(new NM("","","","00000000000","","",""));   
-        input.performinput();
+        input.setRegisterBehavior(new EM("","","","00000000000","","",""));   
+        input.performRegister();
+        input.setRegisterBehavior(new NM("","","","00000000000","","",""));   
+        input.performRegister();
     }
 }

@@ -11,13 +11,14 @@ package strategy;
  */
 public class Manager {
     
-    Strategy strategy;
+    RegisterBehavior strategy;
     
-    public void setStrategy(Strategy strategy){
+    public void setRegisterBehavior(RegisterBehavior strategy){
         this.strategy = strategy;
     }
     
-    public void performinput(){
-        strategy.input();
+    public void performRegister(){
+        strategy.register();
     }
+    
 }
