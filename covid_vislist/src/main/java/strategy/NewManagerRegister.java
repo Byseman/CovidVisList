@@ -1,8 +1,9 @@
 /*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+NewManagerRegister.java
+- Strategy 패턴
+- RegisterBehavior.java(interface)를 상속 / 행동 클래스
+- 새로운 사업자의 사업자등록정보를 받음.
+*/
 package strategy;
 
 import java.io.BufferedWriter;
@@ -13,10 +14,6 @@ import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
-/**
- *
- * @author Owner
- */
 abstract class NewManagerRegister implements RegisterBehavior {
 
     protected String facilityName;
@@ -39,32 +36,37 @@ abstract class NewManagerRegister implements RegisterBehavior {
     
     @Override
     public void register() {
-         System.out.println("1");
+        System.out.println("----------------------------------------------");
+        System.out.println("----------사업자등록정보(신규)---------------");
+        System.out.println("----------------------------------------------");
         try {
-            boolean check = false;
+            boolean check = false; // 사업장 전화번호의 형식 일치
             
             try {
-                outFile();
+                outFile(); // 데이터를 리스트에 저장
             } catch (IOException ex) {
                 Logger.getLogger(NewManagerRegister.class.getName()).log(Level.SEVERE, null, ex);
             }
             
-            inFName();
-            inLNum();
-            inPName();
+            inFName(); // 상호명을 입력받음
+            inLNum(); // 사업자 등록번호를 입력받음
+            inPName(); // 대표자를 입력받음
             
+            System.out.println("사업장 전화번호는 다음과 같이 입력해주세요.");
+            System.out.println("ex)01012341234");
             do{
                 check = inFNum();
-            }while (check == false);
+            }while (check == false);  // 사업장 전화번호의 형식이 일치할 때까지 받음
             
-            inBType();
-            inFZone();
-            inFAddress();
+            inBType(); // 업종을 입력받음
+            inFZone(); // 관할 지역을 입력받음
+            inFAddress(); // 사업장 주소를 입력받음
             
-            String info;
+           System.out.println("성공적으로 등록되었습니다.");
+            String info; // 사업자 등록정보를 저장
             info = facilityName + '/' + licenseNum + '/' + presidentName + '/'
                     + facilityNum + '/' + businessType + '/' + facilityZone + '/' + facilityAddress;
-            inFile(info);
+            inFile(info); // 사업자 등록정보를 파일에 저장
         } catch (IOException ex) {
             Logger.getLogger(NewManagerRegister.class.getName()).log(Level.SEVERE, null, ex);
         }

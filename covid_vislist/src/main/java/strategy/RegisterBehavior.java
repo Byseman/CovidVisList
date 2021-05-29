@@ -1,9 +1,10 @@
+/*
+RegisterBehavior.java
+- Strategy 패턴
+- interface
+*/
 package strategy;
 
-/**
- *
- * @author Owner
- */
 public interface RegisterBehavior {
     void register(); //interface
 }
