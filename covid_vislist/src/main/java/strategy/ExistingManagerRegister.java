@@ -59,6 +59,7 @@ abstract class ExistingManagerRegister implements RegisterBehavior {
             check[0] = inLNum(); // 사업자 등록번호 입력받음
             check[1] = inPName(); // 대표자명을 입력받음
         }while (check[0] == false || check[1] == false);
+        
         System.out.println("----------------------------------------------");
 
         System.out.println("사업자 정보가 확인되었습니다.");

@@ -7,6 +7,9 @@ Signup.java
 
 package command;
 
+import Builder.signup;
+import java.io.IOException;
+
 public class Signup {
   private String userid;
   private String password;
@@ -21,9 +24,9 @@ public class Signup {
       this.tel = tel;
   }
   
-  public void signupsrv(){
-      System.out.println("----------------------------------------------");
-      System.out.println("준비중입니다.");
+  public void signupsrv() throws IOException{
+        signup signup = new signup();
+        signup.sign_up();
   }
 
 }
