@@ -24,9 +24,9 @@ public class Signup {
       this.tel = tel;
   }
   
-  public void signupsrv() throws IOException{
-        signup signup = new signup();
-        signup.sign_up();
+  public void signupsrv(){ //이부분 고쳐야함
+//        signup signup = new signup();
+//        signup.sign_up();
   }
 
 }

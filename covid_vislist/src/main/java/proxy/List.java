@@ -1,7 +1,7 @@
-
 package proxy;
 
 public interface List {
-  boolean displayList( ) ;
+
+    void displayList();
 
 }
