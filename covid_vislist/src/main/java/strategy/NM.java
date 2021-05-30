@@ -33,6 +33,11 @@ class NM extends NewManagerRegister{
     
     Scanner sc = new Scanner(System.in);
     
+    /**
+     * 상호명을 입력받음.
+     * 상호명이 존재하지 않을 경우 입력받은 상호명 저장.
+     * 상호명이 존재할 경우 다시 입력받음.
+     */
     protected void inFName() {
         
         String input;
@@ -59,6 +64,11 @@ class NM extends NewManagerRegister{
         }
     }
     
+    /**
+     * 사업자 등록번호를 입력받음.
+     * 사업자 등록번호가 존재하지 않을 경우 값 저장.
+     * 사업자 등록번호가 존재할 경우 다시 입력받음.
+     */
     protected void inLNum() {
         String input;
         int check = 0; //사업자 등록번호 존재 여부
@@ -84,12 +94,23 @@ class NM extends NewManagerRegister{
             inFName();
         }
     }
+    
+    /**
+     * 대표자명을 입력받음.
+     */
     protected void inPName(){
         // 대표자명을 입력받음
         System.out.print("대표자명:");
         this.presidentName = sc.next();
         
     }
+    
+    /**
+     * 사업장 전화번호를 입력받음.
+     * 입력 형식과 일치할 때까지 전화번호를 입력받음.
+     * 입력 형식과 일치하지 않을 경우 전화번호를 다시 입력받음.
+     * @return 전화번호 패턴 일치 여부(일치할 경우 true, 일치하지 않을 경우 false)
+     */
     protected boolean inFNum(){
         //사업장 전화번호를 입력받음
         String num;
@@ -108,18 +129,29 @@ class NM extends NewManagerRegister{
             return false;
         }
     }
+    
+    /**
+     * 업종을 입력받음.
+     */
     protected void inBType(){
         // 업종을 입력받음
         System.out.print("업종:");
         this.businessType = sc.next();
 
     }
+    
+    /**
+     * 관할 지역을 입력받음.
+     */
     protected void inFZone(){
         // 관할 지역을 입력받음
         System.out.print("관할지역:");
         this.facilityZone = sc.next();
     }
     
+    /**
+     * 사업장 주소를 입력받음.
+     */
     protected void inFAddress(){
         String input;
         int check = 0; //사업장 주소 존재 여부
@@ -147,6 +179,10 @@ class NM extends NewManagerRegister{
         }
     }
     
+    /**
+     * 입력받은 사업장 등록정보를 파일에 저장
+     * @param info 
+     */
     protected void inFile(String info){
         // 입력받은 사업장 등록정보를 파일에 저장
         BufferedWriter bf = null;
@@ -168,6 +204,10 @@ class NM extends NewManagerRegister{
         
     } 
     
+    /**
+     * 기존에 있던 사업자등록정보를 읽어 리스트 형식으로 저장.
+     * @throws IOException 
+     */
     protected void outFile() throws IOException {
         // 기존에 있던 사업자등록정보를 읽어 리스트 형식으로 저장
         String line;

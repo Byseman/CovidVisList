@@ -33,6 +33,11 @@ class EM extends ExistingManagerRegister{
     
     Scanner sc = new Scanner(System.in);
     
+    /**
+     * 상호명을 입력 받음.
+     * 상호명이 존재하지 않을 경우 상호명을 입력받음.
+     * 상호명이 존재할 경우 상호명을 다시 입력받음. 
+     */
     protected void inFName() {
 
         String input;
@@ -63,6 +68,12 @@ class EM extends ExistingManagerRegister{
         
     }
     
+    /**
+     * 기존 사업자 확인을 위해 사업자 등록번호를 입력받음.
+     * 사업자 등록번호가 일치할 때까지 입력받음.
+     * 사업자 등록번호가 일치하지 않을 경우 다시 입력받음.
+     * @return 사업자 등록번호 일치 여부(일치할 경우 true, 일치하지 않을 경우 false)
+     */
     protected boolean inLNum() {
         
         String input;
@@ -95,6 +106,12 @@ class EM extends ExistingManagerRegister{
         
     }
     
+    /**
+     * 기존 사업자 확인을 위해 대표자명을 입력받음.
+     * 대표자명이 일치할 때가지 입력받음.
+     * 대표자가 일치하지 않을 경우 다시 입력받음.
+     * @return 대표자명 일치 여부(일치할 경우 true, 일치하지 않을 경우 false)
+     */
     protected boolean inPName(){
         
         String input;
@@ -128,6 +145,12 @@ class EM extends ExistingManagerRegister{
         
     }
     
+    /**
+     * 사업장 전화번호를 입력받음.
+     * 입력 형식과 일치할 때까지 전화번호를 입력받음.
+     * 입력 형식과 일치하지 않을 경우 전화번호를 다시 입력받음.
+     * @return 전화번호 패턴 일치 여부(일치할 경우 true, 일치하지 않을 경우 false)
+     */
     protected boolean inFNum(){
         
         String num;
@@ -148,19 +171,28 @@ class EM extends ExistingManagerRegister{
         }
     }
     
+    /**
+     * 업종을 입력받음.
+     */
     protected void inBType(){
-        //업종을 입력받음
         System.out.print("업종:");
         this.businessType = sc.next();
 
     }
     
+    /**
+     * 관할지역을 입력받음.
+     */
     protected void inFZone(){
-        //관할지역을 입력받음
         System.out.print("관할지역:");
         this.facilityZone = sc.next();
     }
     
+    /**
+     * 사업장 주소를 입력받음.
+     * 사업장 주소가 존재하지 않을 경우 값을 저장
+     * 사업장 주소가 존재할 경우 다시 입력받음.
+     */
     protected void inFAddress(){
         
         String input;
@@ -192,6 +224,10 @@ class EM extends ExistingManagerRegister{
         }
     }
 
+    /**
+     * 입력받은 사업장 등록정보를 파일에 저장
+     * @param info 
+     */
     protected void inFile(String info){
         // 입력받은 사업장 등록정보를 파일에 저장
         BufferedWriter bf = null;
@@ -206,6 +242,10 @@ class EM extends ExistingManagerRegister{
         }
     }
     
+    /**
+     * 기존에 있던 사업자등록정보를 읽어 리스트 형식으로 저장.
+     * @throws IOException 
+     */
     protected void outFile() throws IOException {
         // 기존에 있던 사업자등록정보를 읽어 리스트 형식으로 저장
         String line;

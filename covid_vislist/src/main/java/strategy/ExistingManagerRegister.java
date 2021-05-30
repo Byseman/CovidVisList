@@ -33,6 +33,10 @@ abstract class ExistingManagerRegister implements RegisterBehavior {
         this.facilityAddress = facilityAddress;
     }
     
+    /**
+     * 독립된 클래스.
+     * 기존 사업자등록정보를 입력받음.
+     */
     @Override
     public void register() {
               System.out.println("----------------------------------------------");

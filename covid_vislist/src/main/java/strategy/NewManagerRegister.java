@@ -34,6 +34,9 @@ abstract class NewManagerRegister implements RegisterBehavior {
         this.facilityAddress = facilityAddress;
     }
     
+    /**
+     * 신규 사업자등록정보를 입력받음.
+     */
     @Override
     public void register() {
         System.out.println("----------------------------------------------");
