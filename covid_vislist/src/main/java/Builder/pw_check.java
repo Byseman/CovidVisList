@@ -26,6 +26,7 @@ import java.util.Scanner;
  * @author window
  */
 public class pw_check {
+    public void password_check(){
         try {
             Scanner sc = new Scanner(System.in);
             String PW_Check;
@@ -33,19 +34,20 @@ public class pw_check {
             PW_Check=sc.next();
             
             String[] array;
-            BufferedReader bos = new BufferedReader(new FileReader("Signup.txt"));
-            while ((PW_Check = bos.readLine()) != null) {
-                array = PW_Check.split(" ");
-                if (PW_Check.equals(array[1])) {
-                    System.out.println("비번이 일치합니다.");
-                }
-                 else {
-                    System.out.println("비번이 일치하지 않습니다.");
-                    break;
+            try (BufferedReader bos = new BufferedReader(new FileReader("Signup.txt"))) {
+                while ((PW_Check = bos.readLine()) != null) {
+                    array = PW_Check.split(" ");
+                    if (PW_Check.equals(array[1])) {
+                        System.out.println("비번이 일치합니다.");
+                    }
+                    else {
+                        System.out.println("비번이 일치하지 않습니다.");
+                        break;
+                    }
                 }
             }
-            bos.close();
         } catch (IOException E10) {
             E10.printStackTrace();
         }
+    }
 }
