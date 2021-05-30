@@ -187,7 +187,7 @@ class NM extends NewManagerRegister{
         // 입력받은 사업장 등록정보를 파일에 저장
         BufferedWriter bf = null;
         try {
-            bf = new BufferedWriter(new FileWriter("manager.txt", true));
+            bf = new BufferedWriter(new FileWriter("./datafile/manager.txt", true));
             PrintWriter pw = new PrintWriter(bf, true);
             pw.write(info + "\n");
             pw.flush();
@@ -211,7 +211,7 @@ class NM extends NewManagerRegister{
     protected void outFile() throws IOException {
         // 기존에 있던 사업자등록정보를 읽어 리스트 형식으로 저장
         String line;
-         File file = new File("manager.txt");
+         File file = new File("./datafile/manager.txt");
         try {
           BufferedReader br = new BufferedReader(new InputStreamReader(new FileInputStream(file)/*, "utf-8"*/));
             while ((line = br.readLine()) != null) {
