@@ -1,6 +1,7 @@
+package decorator;
 
 abstract class SortDecorator implements SearchList {
-  private SearchList ;
+  private SearchList;
 
   public void setSort() {
   }

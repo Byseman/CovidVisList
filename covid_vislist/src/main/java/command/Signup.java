@@ -7,7 +7,7 @@ Signup.java
 
 package command;
 
-import Builder.signup;
+import builder.signup;
 import java.io.IOException;
 
 public class Signup {

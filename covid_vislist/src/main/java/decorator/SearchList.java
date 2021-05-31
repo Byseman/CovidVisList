@@ -1,3 +1,4 @@
+package decorator;
 
 interface SearchList {
   void setSort() ;
