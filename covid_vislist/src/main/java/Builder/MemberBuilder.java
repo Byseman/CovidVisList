@@ -14,25 +14,29 @@ public class MemberBuilder {
     private String id;
     private String pw;
     private String name;
+    private Member member;
 
-    public MemberBuilder setPW(String pw) {
-        this.pw = pw;
+    private MemberBuilder() {
+        member = new Member("default", "default", "default");
+    }
+
+    public static MemberBuilder setId(String id) {
+        MemberBuilder builder = new MemberBuilder();
+        builder.member.setId(id);
+        return builder;
+    }
+
+    public MemberBuilder setPw(String pw) {
+        member.setPw(pw);
         return this;
     }
 
     public MemberBuilder setName(String name) {
-        this.name = name;
-        return this;
-    }
-
-    public MemberBuilder setID(String id) {
-        this.id = id;
+        member.setName(name);
         return this;
     }
 
     public Member build() {
-        Member member = new Member(id, pw, name);
-
-        return member;
+        return this.member;
     }
 }

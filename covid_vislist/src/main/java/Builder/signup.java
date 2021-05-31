@@ -61,9 +61,8 @@ public class signup {
                 System.out.println("비밀번호를 한번 더 입력해주세요.");
                 pw_check = sc.next();
             } while (pw == pw_check);
-
-            MemberBuilder memberBuilder = new MemberBuilder();
-            Member member = memberBuilder.setID(id).setPW(pw).setName(name).build();
+            
+            Member member = MemberBuilder.setId(id).setPw(pw).setName(name).build();
 
             BufferedWriter bf = null;
             try {
