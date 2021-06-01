@@ -1,5 +1,6 @@
 /**
- * 
+ RealSubject.java
+ - Proxy 패턴의 RealSubject 역할
  */
 package proxy;
 
@@ -20,14 +21,14 @@ class RealSubject implements List {
         LoadList(filename); // 생성자에서 파일을 읽어오는 메소드 추가
     }
 
-    /**
-     * 파일 로딩.(정확한 건 이후 작성).
-     * 부가적 설명
-     * @param filename 
-     */
+
     
     // LoadList 개요 : Command 패턴 내 Signin.readfile 메소드 코드 재사용
-    
+    /**
+     * 파일 로딩.
+     * 파일 이름을 입력받아 해당 파일의 출입 명부를 불러옴
+     * @param filename 
+     */
     private void LoadList(String filename) {
         System.out.println("파일 로딩 중");
         // list에 코드 넣기 (리스트 한 줄 형식으로 저장 원합니다~!~)
@@ -61,8 +62,9 @@ class RealSubject implements List {
     }
 
     /**
-     * 출입명부 화면에 출력(정확한 건 이후 작성).
-     * 부가적 설명
+     * 출입명부를 화면에 출력.
+     * 명부가 존재하지 않을 시 출입명부가 존재하지 않는다는 에러 메시지를 띄움
+     * 명부가 존재할 시 출입명부를 화면에 출력함
      */
     @Override
     public void displayList() {

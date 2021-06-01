@@ -1,7 +1,7 @@
 /*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
+Member.java
+- builder 패턴
+- Member의 아이디, 비밀번호, 이름
  */
 package builder;
 
@@ -11,10 +11,16 @@ package builder;
  */
 public class Member {
 
-    private String id;
-    private String pw;
-    private String name;
+    private String id; //아이디
+    private String pw; //비밀번호
+    private String name; //이름
 
+    /**
+     * Member 생성자.
+     * @param id
+     * @param pw
+     * @param name 
+     */
     public Member(String id, String pw, String name) {
         super();
         this.id = id;
@@ -22,6 +28,10 @@ public class Member {
         this.name = name;
     }
 
+    /**
+     * id, pw, name의 getter, setter.
+     * @return 
+     */
     public String getId() {
         return id;
     }
@@ -46,6 +56,10 @@ public class Member {
         this.name = name;
     }
 
+    /**
+     * id와 pw, name을 문자열로 만들어 리턴.
+     * @return 
+     */
     @Override
     public String toString() {
         return id + " " + pw + " " + name + "\n";

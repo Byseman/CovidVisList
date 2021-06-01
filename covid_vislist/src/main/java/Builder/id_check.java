@@ -1,7 +1,7 @@
 /*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
+id_check.java
+- builder 패턴
+- 아이디 중복 체크
  */
 package builder;
 

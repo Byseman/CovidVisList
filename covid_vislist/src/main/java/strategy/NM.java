@@ -1,7 +1,7 @@
 /*
 NM.java
 - Strategy 패턴
-- NewManagerRegister.java를 상속하여 세부적인 기능 수행
+- NewManagerRegister.java를 상속받아 세부적인 기능 수행
 - 새로운 사업자등록정보를 입력받음.
  */
 package strategy;
@@ -34,7 +34,9 @@ class NM extends NewManagerRegister {
     Scanner sc = new Scanner(System.in);
 
     /**
-     * 상호명을 입력받음. 상호명이 존재하지 않을 경우 입력받은 상호명 저장. 상호명이 존재할 경우 다시 입력받음.
+     * 상호명을 입력받음. 
+     * 상호명이 존재하지 않을 경우 입력받은 상호명 저장. 
+     * 상호명이 존재할 경우 다시 입력받음.
      */
     protected void inFName() {
 
@@ -62,7 +64,9 @@ class NM extends NewManagerRegister {
     }
 
     /**
-     * 사업자 등록번호를 입력받음. 사업자 등록번호가 존재하지 않을 경우 값 저장. 사업자 등록번호가 존재할 경우 다시 입력받음.
+     * 사업자 등록번호를 입력받음. 
+     * 사업자 등록번호가 존재하지 않을 경우 값 저장. 
+     * 사업자 등록번호가 존재할 경우 다시 입력받음.
      */
     protected void inLNum() {
         String input;
@@ -100,8 +104,9 @@ class NM extends NewManagerRegister {
     }
 
     /**
-     * 사업장 전화번호를 입력받음. 입력 형식과 일치할 때까지 전화번호를 입력받음. 입력 형식과 일치하지 않을 경우 전화번호를 다시
-     * 입력받음.
+     * 사업장 전화번호를 입력받음. 
+     * 입력 형식과 일치할 때까지 전화번호를 입력받음. 
+     * 입력 형식과 일치하지 않을 경우 전화번호를 다시 입력받음.
      *
      * @return 전화번호 패턴 일치 여부(일치할 경우 true, 일치하지 않을 경우 false)
      */
